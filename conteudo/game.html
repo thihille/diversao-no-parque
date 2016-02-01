@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="expires" content="0" />
+	<meta name="author" content="Editora do Brasil" />
+	<meta name="copyright" content="© 2014 Editoradobrasil.com.br" />
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/animate.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	
+	<script>
+		function iniciar_oed_frame(){
+			//alert("iniciar_oed_frame");
+			iniciar_com_tap();
+		}	
+	</script>	
+	
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/PxLoader.js"></script>
+	<script type="text/javascript" src="js/PxLoaderImage.js"></script>
+	<script type="text/javascript" src="js/jquery.spritely.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/howler.min.js"></script>
+	<script type="text/javascript" src="js/funcoes.js"></script>
+	<title></title>
+</head>
+
+<body>
+<div id="loading"><img src="img/loader.gif" alt="Carregando">Carregando</div>
+<div id="init" class="container" data-fullscreen="true">
+	<div id="capa" style="display:none">
+		<div class="header">
+			<h1></h1>
+		</div>
+		<div class="subheader">
+			<span>-</span>	
+			<p></p>
+		</div>
+		<div class="acoes" onClick="iniciar_trilha();">
+			<div>Iniciar</div>
+			<div>créditos</div>
+		</div>
+		<div id="creditos">
+			<div class="barraLogo">
+				<img src="img/logo.png">
+			</div>
+			<h2>Projeto Jimboê</h2>
+			<div class="boxTextMask"></div>
+			<div class="boxText">
+				<div class="text-creditos">
+					<strong>Supervisão de arte, editoração e produção digital:</strong> Adelaide Carolina Cerutti<br>
+					<strong>Coordenação de produção digital:</strong> Daniel Cilli<br><br>
+
+					<strong>Design instrucional:</strong> Renato Macedo de Almeida<br>
+					<strong>Web design:</strong> Thiago Hille e Tiago Lima<br>
+					<strong>Assistência de design digital:</strong> Emília Akemi<br>
+					<strong>Assistência de arte:</strong> Livia Danielli <br>
+					<strong>Revisão:</strong> Equipe Revisão <br>
+					<strong>Pesquisa iconográfica:</strong> Mariane Mota<br>
+					<strong>Imagens e Ilustrações:</strong> Shutterstock e Latinstock<br>
+					<strong>Áudio:</strong> Stereobot e Soundsnap<br>
+					<strong>Narração:</strong> Flávio Kranic<br>
+					<strong>Controle de processos editoriais:</strong> Equipe CPE<br>
+				</div>
+			</div>
+			<div class="btnFechaCreditos">FECHAR</div>
+		</div>
+	</div>
+<!-- Start code -->
+	<div id="content">
+		<div id="bemvindo">
+			<div class="fala">
+			<h2>Olá, crianças!</h2>
+			<p>Sejam bem-vindas ao Parque dos Números! Aqui vocês percorrerão caminhos que levam a diversas atrações. Mas atenção: em cada uma delas, vocês deverão escolher um número de 1 a 9, que deve corresponder à quantidade de itens a ser indicada. Boa diversão!</p>
+			<span></span>
+			</div>
+			<div class="personagem1">
+				<img src="img/personagem1.png" alt="" name="p1">
+			</div>
+			<div class="personagem2">
+				<img src="img/personagem2.png" alt="" name="p2">
+			</div>
+			<div class="professor">
+				<img src="img/professor.png" alt="">
+			</div>
+		</div>
+		<canvas id="canvas"></canvas>
+		<div id="personagem"></div>
+		<div class="stepbystep"><p></p></div>
+		<div class="imgItens"></div>
+		<div id="feedback">
+			<div>
+				<p>
+				</p>
+				<span></span>
+			</div>
+			<div class="professorF"><img src="img/professor.png" alt=""></div>
+		</div>
+		<div class="pergunta" id="id1">
+			<h2>Observe a tela e escolha o número que representa a quantidade de mapas que você vê.</h2>
+			<img src="img/ilustra-fase1.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li class="acerto">4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id2">
+			<h2>Observe a tela e escolha o número que representa a quantidade de pedalinhos que você vê.</h2>
+			<img src="img/ilustra-fase2.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li class="acerto">8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id3">
+			<h2>Observe a tela e escolha o número que representa a quantidade de tatus que você vê.</h2>
+			<img src="img/ilustra-fase3.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li class="acerto">7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id4">
+			<h2>Observe a tela e escolha o número que representa a quantidade de cestas de piquenique que você vê.</h2>
+			<img src="img/ilustra-fase4.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li class="acerto">5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id5">
+			<h2>Observe a tela e escolha o número que representa a quantidade de corujas que você vê.</h2>
+			<img src="img/ilustra-fase5.png" alt="">
+			<ul>
+				<li>1</li>
+				<li class="acerto">2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id6">
+			<h2>Observe a tela e escolha o número que representa a quantidade de árvores que você vê.</h2>
+			<img src="img/ilustra-fase6.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li class="acerto">6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id7">
+			<h2>Observe a tela e escolha o número que representa a quantidade de sorvetes que você vê.</h2>
+			<img src="img/ilustra-fase7.png" alt="">
+			<ul>
+				<li class="acerto">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id8">
+			<h2>Observe a tela e escolha o número que representa a quantidade de <em>skates</em> que você vê.</h2>
+			<img src="img/ilustra-fase8.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li class="acerto">3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		
+		<div class="pergunta" id="id9">
+			<h2>Observe a tela e escolha o número que representa a quantidade de fotografias que você vê.</h2>
+			<img src="img/ilustra-fase9.png" alt="">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li class="acerto">9</li>
+			</ul>
+			<p>
+				Chances:
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</p>
+		</div>
+		<div class="balaoFinal">
+			<p>Parabéns! Você completou todo o passeio e conheceu todo o parque.</p>
+			<span></span>
+		</div>
+		<div id="parabens">
+			<img src="" alt="">
+		</div>
+		<div class="professor-final"></div>
+	</div>
+<!-- Final code -->
+</div>
+<!-- Efeitos sonoros -->
+<audio class="som-introducaoambiente" loop>
+	<source src="media/audio/_somintro.mp3" type="audio/mpeg">
+	<source src="media/audio/_somintro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-ambiente" loop>
+	<source src="media/audio/_somAmbiente.mp3" type="audio/mpeg">
+	<source src="media/audio/_somAmbiente.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-acerto">
+	<source src="media/audio/_somAcerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_somAcerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro">
+	<source src="media/audio/_somErro.mp3" type="audio/mpeg">
+	<source src="media/audio/_somErro.ogg" type="audio/ogg">
+</audio>
+<audio class="som-sucesso">
+	<source src="media/audio/_somSucesso.mp3" type="audio/mpeg">
+	<source src="media/audio/_somSucesso.ogg" type="audio/ogg">
+</audio>
+<audio class="som-falasucesso">
+	<source src="media/audio/_final.mp3" type="audio/mpeg">
+	<source src="media/audio/_final.ogg" type="audio/ogg">
+</audio>
+<audio class="som-gameoverF">
+	<source src="media/audio/_somGameoverF.mp3" type="audio/mpeg">
+	<source src="media/audio/_somGameoverF.ogg" type="audio/ogg">
+</audio>
+<audio class="som-gameoverM">
+	<source src="media/audio/_somGameoverM.mp3" type="audio/mpeg">
+	<source src="media/audio/_somGameoverM.ogg" type="audio/ogg">
+</audio>
+
+<!-- Locução -->
+<audio class="som-texto1">
+	<source src="media/audio/___texto1.mp3" type="audio/mpeg">
+	<source src="media/audio/___texto1.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta1">
+	<source src="media/audio/_fase1-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase1-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto1">
+	<source src="media/audio/_fase1-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase1-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro1">
+	<source src="media/audio/_fase1-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase1-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta2">
+	<!--<source src="media/audio/_fase2-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase2-pergunta.ogg" type="audio/ogg"> -->
+</audio>
+<audio class="som-acerto2">
+	<source src="media/audio/_fase2-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase2-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro2">
+	<source src="media/audio/_fase2-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase2-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta3">
+	<source src="media/audio/_fase3-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase3-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto3">
+	<source src="media/audio/_fase3-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase3-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro3">
+	<source src="media/audio/_fase3-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase3-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta4">
+	<source src="media/audio/_fase4-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase4-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto4">
+	<source src="media/audio/_fase4-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase4-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro4">
+	<source src="media/audio/_fase4-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase4-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta5">
+	<source src="media/audio/_fase5-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase5-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto5">
+	<source src="media/audio/_fase5-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase5-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro5">
+	<source src="media/audio/_fase5-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase5-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta6">
+	<source src="media/audio/_fase6-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase6-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto6">
+	<source src="media/audio/_fase6-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase6-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro6">
+	<source src="media/audio/_fase6-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase6-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta7">
+	<source src="media/audio/_fase7-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase7-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto7">
+	<source src="media/audio/_fase7-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase7-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro7">
+	<source src="media/audio/_fase7-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase7-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta8">
+	<source src="media/audio/_fase8-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase8-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto8">
+	<source src="media/audio/_fase8-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase8-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro8">
+	<source src="media/audio/_fase8-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase8-erro.ogg" type="audio/ogg">
+</audio>
+
+<audio class="som-pergunta9">
+	<source src="media/audio/_fase9-pergunta.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase9-pergunta.ogg" type="audio/ogg">
+</audio>
+<audio class="som-acerto9">
+	<source src="media/audio/_fase9-acerto.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase9-acerto.ogg" type="audio/ogg">
+</audio>
+<audio class="som-erro9">
+	<source src="media/audio/_fase9-erro.mp3" type="audio/mpeg">
+	<source src="media/audio/_fase9-erro.ogg" type="audio/ogg">
+</audio>
+</body>
+</html>
