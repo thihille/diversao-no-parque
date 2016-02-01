@@ -48,15 +48,15 @@ var audio2_somerrofase8 = new Howl({urls: ['media/audio/fase8-erro.mp3']});
 var audio2_somerrofase9 = new Howl({urls: ['media/audio/fase9-erro.mp3']});
 // Configurações dos textos do botão de ajuda... Se houver mais de um texto do botão de ajuda, no arquivo FUNÇÕES.JS de desenvolvimento insira apenas a variavel "txtLvl = NUMERO DO TEXTO DO BOTÃO DE AJUDA QUE APARECERÁ, no local da função de desenvolvimento do projeto.
 function tocar_audio2_somintro(){
-	audio2_somintro.stop();
-	audio2_somintro.play();
+	audio2_somintro.stop().play();
 }
 function tocar_audio2_somambiente(){
-	audio2_somambiente.stop();
-	audio2_somambiente.play();
+	audio2_somambiente.stop().play();
 }
 function encerrra_oed(){
-	setTimeout(function(){ sessionStorage.setItem('reiniciar_oed', 'sim'); }, 7000);	
+	setTimeout(function(){
+        sessionStorage.setItem('reiniciar_oed', 'sim'); 
+    }, 7000);	
 }
 
 
@@ -553,9 +553,9 @@ function StopConfetti() {
 				//somAmbiente.remove();
 				audio2_somambiente.stop();
 				//somSucesso.get(0).play();
-				audio2_somsucesso.play();
+				audio2_somsucesso.stop().play();
 				//somFalaSucesso.get(0).play();
-				audio2_falasucesso.play();
+				audio2_falasucesso.stop().play();
 				StartConfetti();
 				$("canvas").show().addClass("animated fadeInUp");
 				/*somSucesso.on("ended",function(){
@@ -603,7 +603,7 @@ function StopConfetti() {
 	function feedbackE(yPos,xPos,yWid,yHei,msg){
 		if(vidas != 0){
 			//somErro.get(0).play();
-			audio2_somerro.play();
+			audio2_somerro.stop().play();
 			$("#feedback div:first-child").css({
 				marginTop:yPos,
 				marginLeft:xPos,
@@ -661,62 +661,34 @@ function StopConfetti() {
 			vidas = 3;
 			$("#"+idPergunta).show().addClass("animated flipInY");
 			if(idPergunta == "id1"){
-				//somPerguntaFase1.get(0).play();
-				audio2_somperguntafase1.play();
+				audio2_somperguntafase1.stop().play();
 			}else if(idPergunta == "id2"){
-				//somPerguntaFase1.get(0).pause();
-				//somPerguntaFase2.get(0).play();
 				audio2_somperguntafase1.stop();					
-				audio2_somperguntafase2.play();			
+				audio2_somperguntafase2.stop().play();			
 			}else if(idPergunta == "id3"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();	
 				audio2_somperguntafase2.volume(0);
-				audio2_somperguntafase3.play();	
+				audio2_somperguntafase3.stop().play();	
 			}else if(idPergunta == "id4"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).pause();
-				somPerguntaFase4.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();
 				audio2_somperguntafase3.stop();					
-				audio2_somperguntafase4.play();	
+				audio2_somperguntafase4.stop().play();	
 			}else if(idPergunta == "id5"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).pause();
-				somPerguntaFase4.get(0).pause();
-				somPerguntaFase5.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();
 				audio2_somperguntafase3.stop();
 				audio2_somperguntafase4.stop();					
-				audio2_somperguntafase5.play();	
+				audio2_somperguntafase5.stop().play();	
 			}else if(idPergunta == "id6"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).pause();
-				somPerguntaFase4.get(0).pause();
-				somPerguntaFase5.get(0).pause();
-				somPerguntaFase6.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();
 				audio2_somperguntafase3.stop();
 				audio2_somperguntafase4.stop();					
 				audio2_somperguntafase5.stop();
-				audio2_somperguntafase6.play();	
+				audio2_somperguntafase6.stop().play();	
 			}else if(idPergunta == "id7"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).pause();
-				somPerguntaFase4.get(0).pause();
-				somPerguntaFase5.get(0).pause();
-				somPerguntaFase6.get(0).pause();
-				somPerguntaFase7.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();
 				audio2_somperguntafase3.stop();
@@ -725,14 +697,6 @@ function StopConfetti() {
 				audio2_somperguntafase6.stop();	
 				audio2_somperguntafase7.play();	
 			}else if(idPergunta == "id8"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).pause();
-				somPerguntaFase4.get(0).pause();
-				somPerguntaFase5.get(0).pause();
-				somPerguntaFase6.get(0).pause();
-				somPerguntaFase7.get(0).pause();
-				somPerguntaFase8.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();
 				audio2_somperguntafase3.stop();
@@ -740,17 +704,8 @@ function StopConfetti() {
 				audio2_somperguntafase5.stop();
 				audio2_somperguntafase6.stop();	
 				audio2_somperguntafase7.stop();	
-				audio2_somperguntafase8.play();	
+				audio2_somperguntafase8.stop().play();	
 			}else if(idPergunta == "id9"){
-				/*somPerguntaFase1.get(0).pause();
-				somPerguntaFase2.get(0).pause();
-				somPerguntaFase3.get(0).pause();
-				somPerguntaFase4.get(0).pause();
-				somPerguntaFase5.get(0).pause();
-				somPerguntaFase6.get(0).pause();
-				somPerguntaFase7.get(0).pause();
-				somPerguntaFase8.get(0).pause();
-				somPerguntaFase9.get(0).play();*/
 				audio2_somperguntafase1.stop();
 				audio2_somperguntafase2.stop();
 				audio2_somperguntafase3.stop();
@@ -759,7 +714,7 @@ function StopConfetti() {
 				audio2_somperguntafase6.stop();	
 				audio2_somperguntafase7.stop();	
 				audio2_somperguntafase8.stop();
-				audio2_somperguntafase9.play();	
+				audio2_somperguntafase9.stop().play();	
 			}
 		},tempo);		
 	}
@@ -788,7 +743,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase1.stop();
-					audio2_somgameoverm.play();
+					audio2_somgameoverm.stop().play();
 					},800);
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -796,7 +751,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase1.stop();
-					audio2_somgameoverf.play();
+					audio2_somgameoverf.stop().play();
 					},800);
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -823,7 +778,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase2.stop();
-					audio2_somgameoverm.play();
+					audio2_somgameoverm.stop().play();
 					},800);
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -831,7 +786,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase2.stop();
-					audio2_somgameoverf.play();
+					audio2_somgameoverf.stop().play();
 					},800);
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -858,7 +813,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase3.stop();
-					audio2_somgameoverm.play();
+					audio2_somgameoverm.stop().play();
 					},800);					
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -866,7 +821,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase3.stop();
-					audio2_somgameoverf.play();
+					audio2_somgameoverf.stop().play();
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -893,7 +848,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase4.stop();
-					audio2_somgameoverm.play();	
+					audio2_somgameoverm.stop().play();	
 					},800);				
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -901,7 +856,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase4.stop();
-					audio2_somgameoverf.play();	
+					audio2_somgameoverf.stop().play();	
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -928,7 +883,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase5.stop();
-					audio2_somgameoverm.play();
+					audio2_somgameoverm.stop().play();
 					},800);					
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -936,7 +891,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase5.stop();
-					audio2_somgameoverf.play();
+					audio2_somgameoverf.stop().play();
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -963,7 +918,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase6.stop();
-					audio2_somgameoverm.play();
+					audio2_somgameoverm.stop().play();
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -971,7 +926,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase6.stop();
-					audio2_somgameoverf.play();
+					audio2_somgameoverf.stop().play();
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -998,7 +953,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase.stop();
-					audio2_somgameoverm.play();
+					audio2_somgameoverm.stop().play();
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -1006,7 +961,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase7.stop();
-					audio2_somgameoverf.play();	
+					audio2_somgameoverf.stop().play();	
 					},800);										
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -1033,7 +988,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase8.stop();
-					audio2_somgameoverm.play();	
+					audio2_somgameoverm.stop().play();	
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -1041,7 +996,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase8.stop();
-					audio2_somgameoverf.play();	
+					audio2_somgameoverf.stop().play();	
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
 				}
@@ -1068,7 +1023,7 @@ function StopConfetti() {
 					//somGameoverM.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase9.stop();
-					audio2_somgameoverm.play();	
+					audio2_somgameoverm.stop().play();	
 					},800);						
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vindo para reiniciar o passeio, fique atento desta vez, boa sorte!");
 				}else if(id == "p2"){
@@ -1076,7 +1031,7 @@ function StopConfetti() {
 					//somGameoverF.get(0).play();
 					setTimeout(function(){
 					audio2_somerrofase9.stop();
-					audio2_somgameoverf.play();	
+					audio2_somgameoverf.stop().play();	
 					},800);						
 
 					feedbackE("233px","265px","400px",alturaPadraoE,"Seja bem-vinda para reiniciar o passeio, fique atenta desta vez, boa sorte!");
@@ -1240,8 +1195,8 @@ opcoes.menu.instrucoes.hide();
 									$(".fala").show().addClass("animated bounceIn");
 									//somIntro.prop("volume", 0.2);
 									//audio2_somintro.stop();
-									somTexto1.get(0).play();
-									audio2_somtexto1.play();
+									somTexto1.get(0).stop().play();
+									audio2_somtexto1.stop().play();
 									somTexto1.on("ended",function(){
 										somIntro.prop("volume", 1);
 										personagem1.seletor.animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100,function(){
@@ -1283,7 +1238,7 @@ opcoes.menu.instrucoes.hide();
 											//somIntro.remove();
 											audio2_somintro.stop();
 											//somAmbiente.get(0).play();
-											audio2_somambiente.play();
+											audio2_somambiente.stop().play();
 											setTimeout(function(){
 												$("#bemvindo").remove();
 												personagem1.seletor.hide();
@@ -1305,7 +1260,7 @@ opcoes.menu.instrucoes.hide();
 											//somIntro.remove();
 											audio2_somintro.stop();
 											//somAmbiente.get(0).play();
-											audio2_somambiente.play();
+											audio2_somambiente.stop().play();
 											setTimeout(function(){
 												$("#bemvindo").remove();
 												personagem1.seletor.hide();
