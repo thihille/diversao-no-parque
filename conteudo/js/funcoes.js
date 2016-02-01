@@ -16,7 +16,23 @@ var audio2_somgameoverf = new Howl({urls: ['media/audio/somGameoverF.mp3']});
 var audio2_somgameoverm = new Howl({urls: ['media/audio/somGameoverM.mp3']});
 var audio2_somsucesso = new Howl({urls: ['media/audio/somSucesso.mp3']});
 //
-var audio2_somtexto1 = new Howl({urls: ['media/audio/texto1.mp3']});
+var audio2_somtexto1 = new Howl({urls: ['media/audio/texto1.mp3'],onend:function(){
+    $("#bemvindo .personagem1")
+        .animate({opacity:0},100)
+        .animate({opacity:1},100)
+        .animate({opacity:0},100)
+        .animate({opacity:1},100)
+        .animate({opacity:0},100)
+        .animate({opacity:1},100,function(){
+        $("#bemvindo .personagem2")
+            .animate({opacity:0},100)
+            .animate({opacity:1},100)
+            .animate({opacity:0},100)
+            .animate({opacity:1},100)
+            .animate({opacity:0},100)
+            .animate({opacity:1},100);
+    });
+}});
 var audio2_somperguntafase1 = new Howl({urls: ['media/audio/fase1-pergunta.mp3']});
 var audio2_somperguntafase2 = new Howl({urls: ['media/audio/fase2-pergunta.mp3'],onend: function() {  }});
 var audio2_somperguntafase3 = new Howl({urls: ['media/audio/fase3-pergunta.mp3']});
@@ -1193,17 +1209,7 @@ opcoes.menu.instrucoes.hide();
 								$(".professor").show().addClass("animated slideInRight");
 								setTimeout(function(){
 									$(".fala").show().addClass("animated bounceIn");
-									//somIntro.prop("volume", 0.2);
-									//audio2_somintro.stop();
 									audio2_somtexto1.stop().play();
-									audio2_somtexto1.on("ended",function(){
-										somIntro.prop("volume", 1);
-										personagem1.seletor.animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100,function(){
-											personagem2.seletor.animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100);
-										});
-										
-									});
-									// Ação dos personagens
 									personagem1.seletor.on({
 										mouseover:function(){
 											$(this).find("img").attr("src","img/personagem1-hover.png")
@@ -1237,7 +1243,7 @@ opcoes.menu.instrucoes.hide();
 											//somIntro.remove();
 											audio2_somintro.stop();
 											//somAmbiente.get(0).play();
-											audio2_somambiente.stop().play();
+											audio2_somambiente.play();
 											setTimeout(function(){
 												$("#bemvindo").remove();
 												personagem1.seletor.hide();
@@ -1259,7 +1265,7 @@ opcoes.menu.instrucoes.hide();
 											//somIntro.remove();
 											audio2_somintro.stop();
 											//somAmbiente.get(0).play();
-											audio2_somambiente.stop().play();
+											audio2_somambiente.play();
 											setTimeout(function(){
 												$("#bemvindo").remove();
 												personagem1.seletor.hide();
