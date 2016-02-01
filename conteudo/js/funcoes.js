@@ -1195,9 +1195,8 @@ opcoes.menu.instrucoes.hide();
 									$(".fala").show().addClass("animated bounceIn");
 									//somIntro.prop("volume", 0.2);
 									//audio2_somintro.stop();
-									
 									audio2_somtexto1.stop().play();
-									somTexto1.on("ended",function(){
+									audio2_somtexto1.on("ended",function(){
 										somIntro.prop("volume", 1);
 										personagem1.seletor.animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100,function(){
 											personagem2.seletor.animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100).animate({opacity:0},100).animate({opacity:1},100);
