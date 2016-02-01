@@ -1195,7 +1195,7 @@ opcoes.menu.instrucoes.hide();
 									$(".fala").show().addClass("animated bounceIn");
 									//somIntro.prop("volume", 0.2);
 									//audio2_somintro.stop();
-									somTexto1.get(0).stop().play();
+									
 									audio2_somtexto1.stop().play();
 									somTexto1.on("ended",function(){
 										somIntro.prop("volume", 1);
